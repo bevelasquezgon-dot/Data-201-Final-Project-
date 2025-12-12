@@ -162,6 +162,69 @@ If a video does not pass all three steps, it cannot appear in Youtube Kids or re
 
 ** Diagram Here (Getty Images) 
 
+                    ┌──────────────────────────────┐
+                    │      1. Problem Scoping       │
+                    └───────────────┬──────────────┘
+                                    │
+                                    ▼
+                    ┌──────────────────────────────┐
+                    │      2. Data Acquisition      │
+                    └───────────────┬──────────────┘
+                                    │
+                     ETHICS-FIRST CHECKPOINT #1
+           - Privacy Assessment (GDPR / minors’ data)
+           - Bias & Noise Audit (labeler variability)
+           - Data Minimization + Purpose Limitation
+                                    │
+                                    ▼
+                    ┌──────────────────────────────┐
+                    │      3. Data Exploration      │
+                    └───────────────┬──────────────┘
+                                    │
+                     ETHICS-FIRST CHECKPOINT #2
+        - Detect label noise, adversarial patterns, 
+          cultural inconsistency, and content manipulation
+                                    │
+                                    ▼
+                    ┌──────────────────────────────┐
+                    │          4. Modeling          │
+                    └───────────────┬──────────────┘
+                                    │
+                     ETHICS-FIRST CHECKPOINT #3
+         - XAI Layer Added (SHAP/LIME/Counterfactuals)
+         - Human Approval Gate for “child-safe” classifier
+         - Safety Thresholds, Auditability, Transparency
+                                    │
+                                    ▼
+                    ┌──────────────────────────────┐
+                    │         5. Evaluation         │
+                    └───────────────┬──────────────┘
+                                    │
+                     ETHICS-FIRST CHECKPOINT #4
+       - Reviewer sees model explanations BEFORE release
+       - Stress-test with adversarial kid-bait content
+       - Red-team harmful video variations
+                                    │
+                                    ▼
+                    ┌──────────────────────────────┐
+                    │         6. Deployment         │
+                    └───────────────┬──────────────┘
+                                    │
+                     ETHICS-FIRST CHECKPOINT #5
+      - Live Monitoring for drift, new adversarial trends
+      - Human-Gated Recommendation Filter (HGRF)
+      - Escalation pipeline for parent flagging
+                                    │
+                                    ▼
+                    ┌──────────────────────────────┐
+                    │       Post-Deployment         │
+                    │        Feedback Loop          │
+                    └──────────────────────────────┘
+
+
+
+
+
 ### The XAI Requirement 
 How would SHAP values, LIME, or Counterfactual Explanations have allowed a human operator to catch this error before it caused harm?"
 
@@ -172,5 +235,9 @@ How would SHAP values, LIME, or Counterfactual Explanations have allowed a human
 
 
 ** Mock up an "Explanation Interface" (wireframe or diagram) that shows what the operator should have seen 
+
+
+
+
 
 
