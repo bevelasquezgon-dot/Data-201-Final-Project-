@@ -61,15 +61,15 @@ To build:
 - Safety classifiers trained on human-labeled "appropriate/inappropriate" videos
 - Search ranking and recommendation rules based on engagement data from children and their parents
 
-#### Actual Use 
+##### Actual Use 
 The data was used to : 
 - Train ML systems that filter videos before entering the Youtube Kids App
 - Power a "Recommended for you" engine inside the app
 - Drive "trending" and "popular" lists
 - Serve targeted and contextual ads in the Kids app
 
-### 2. Data Collection 
-#### Sources of Data 
+#### 2. Data Collection 
+##### Sources of Data 
 - User interaction logs from children such as clicks, watch duration, and search history
 - Metadata from characteristics such as titles, thumbnails, and tags
 - Transcripts, audio and visual frames from videos
@@ -77,62 +77,62 @@ The data was used to :
 - Content flagged by parents or others
 - Human-labeled moderation dataset created by Youtube employees, third-party contractors and/or community flagging
 
-#### Notable Properties 
+##### Notable Properties 
 - Enormous Scale : "400 hours of new content per minute"
 - Wide Cultural Inconsistency : "Global Contributors"
 - Highly adversarial environement: Creators manipulate thumbnails and titles to bypass filters"
 
-### 3. Labeling Process 
-#### Human Labelers 
+#### 3. Labeling Process 
+##### Human Labelers 
 - Moderation contractors (globally distributed)
 - Youtube internal trust and safety staff
 - Community flagging by parents and viewers 
 
-### Issues Identified
-#### System Nose 
+#### Issues Identified
+##### System Nose 
 - Inconsistent judgements across reviewers
 - Variable strictness thresholds
 - Wide range of reviewer exposure effects (occasion noise)
 - Shifting norms as bad actors invent no formats
 
-#### Adversarial Manipulation 
+##### Adversarial Manipulation 
 - Creators use misleading thumbnails to bypass moderation
 - Videos mimick popular kids aesthetics to appear safe
 
 -> these inconsistencies contaminate the training data 
 
-### 4. Modeling & Deployment 
-#### Model Types Used 
+#### 4. Modeling & Deployment 
+##### Model Types Used 
 - Video Classification (safe vs inappropriate)
 - Thumbnail/Title Classification
 - Text Transcript Classification
 - Recommendation and Ranking algorithms which used: engagement data, search behavior, and viewing history
 
-#### Model Failures 
+##### Model Failures 
 - Allowed videos that mimic kids content but contain violence/sexual content
 - Recommended increasingly inappropriate content after a child clicked one borderline video
 - Removing flagged videos did not prevent new variants from appearing
 
-#### Why did these failures happen? 
+##### Why did these failures happen? 
 - Label noise due to inconsistent human moderation
 - Engagement optimized recommendation system amplified borderline videos
 - Adversarial creators exploiting metadata/thumbnails
 - Overreliance on automation (automation bias) by parents and Youtube
 - Inadequate human oversight relative to content volume
 
-### 5. Harms 
-#### Direct Harms 
+#### 5. Harms 
+##### Direct Harms 
 - Exposure of children to sexual content, violence, profanity and unsafe behavior
 - Increased risk of developmental harm
 - Manipulation of children through commercial content
 
-#### Indirect Harms 
+##### Indirect Harms 
 - Erosion of parent trust
 - Spread of harmful content
 - Reputation and advertiser safety crisis
 
-### 6. GDPR/ Privacy Check 
-#### Was there a privacy violation even if the model had worked perfectly?
+#### 6. GDPR/ Privacy Check 
+##### Was there a privacy violation even if the model had worked perfectly?
 Even if no inappropriate content ever slipped through the filters, YouTube Kidsâ€™ data practices likely violate GDPR due to:
 - profiling minors
 - insufficient parental consent
@@ -141,7 +141,6 @@ Even if no inappropriate content ever slipped through the filters, YouTube Kidsâ
 
 ## The Framework Shutdown 
 ### At what stage of the AI Project Cycle did the failure occur? 
-
 The primary failure points were: 
 1) Problem Scoping - Youtube underestimated the adversarial ways the system could be exploited
 2) Data Acquisition - Harmful content was included in the dataset and not properly labeled or filtered
