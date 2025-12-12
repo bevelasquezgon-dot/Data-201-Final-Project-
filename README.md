@@ -122,7 +122,7 @@ The data was used to :
 - Spread of harmful content
 - Reputation and advertiser safety crisis
 
-### 7. GDPR/ Privacy Check 
+### 6. GDPR/ Privacy Check 
 #### Was there a privacy violation even if the model had worked perfectly?
 Even if no inappropriate content ever slipped through the filters, YouTube Kids’ data practices likely violate GDPR due to:
 - profiling minors
