@@ -142,7 +142,7 @@ Even if no inappropriate content ever slipped through the filters, YouTube Kidsâ
 ## The Framework Shutdown 
 ### At what stage of the AI Project Cycle did the failure occur? 
 The failure occurred primarily in the deployment stage of the AI Project Cycle. 
-The problems emerged after the Youtube kids app and its recommendation algorithms were released for use. Harmful and misleading content slipped through the live recommendation system because bad actors exploited the operational algorithm after launch. The app and algorithms were functional but they underperformed in the wild. 
+The problems emerged after the Youtube kids app and its recommendation algorithms were released for use. Harmful and misleading content slipped through the live recommendation system because bad actors exploited the operational algorithm after launch. The app and algorithms were functional but they underperformed upon deploymnet. 
 
 ### Proposed Fix 
 Proposal: Parents can create a kids library that has no recommendations ; only preselected videos appear.  
