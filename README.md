@@ -219,15 +219,16 @@ If a video does not pass the following three steps, it cannot appear in Youtube 
                     └───────────────┬──────────────┘
                                     │
                      ETHICS-FIRST CHECKPOINT #5
-      - Live Monitoring for drift, new adversarial trends
-      - Human-Gated Recommendation Filter (HGRF)
-      - Escalation pipeline for parent flagging
+       - Live Monitoring for drift, new adversarial trends
+       - Human-Gated Recommendation Filter (HGRF)
+       - Escalation pipeline for parent flagging
+        
                                     │
                                     ▼
                     ┌──────────────────────────────┐
-                    │       Post-Deployment        │
-                    │        Feedback Loop         │
-                    └──────────────────────────────┘
+                    │       Post-Deployment         │
+                    │        Feedback Loop          │
+                    └──────────────────────────────┘ ```
 
 
 
