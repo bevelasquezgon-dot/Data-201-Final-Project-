@@ -208,7 +208,7 @@ If a video does not pass the following three steps, it cannot appear in Youtube 
                     │         5. Evaluation         │
                     └───────────────┬──────────────┘
                                     │
-                     ETHICS-FIRST CHECKPOINT #4
+                    ``` ETHICS-FIRST CHECKPOINT #4
        - Reviewer sees model explanations BEFORE release
        - Stress-test with adversarial kid-bait content
        - Red-team harmful video variations
@@ -229,7 +229,7 @@ If a video does not pass the following three steps, it cannot appear in Youtube 
                     │        Feedback Loop         │
                     └──────────────────────────────┘
 
-
+```
 
 
 
