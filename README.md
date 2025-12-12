@@ -97,7 +97,7 @@ The data was used to :
 
 #### Adversarial Manipulation 
 - Creators use misleading thumbnails to bypass moderation
-- Videos mimick popular kids aesthetics to appear sage
+- Videos mimick popular kids aesthetics to appear safe
 
 -> these inconsistencies contaminate the training data 
 
