@@ -1,4 +1,4 @@
-# Ethical Analysis of Google's Youtube Kids
+# The "Ethics First" Counterfactual Audit of Google's Youtube Kids
 ## Impact Assessment
 ### Incident: Google's Youtube Kids App Presents Inappropriate Content
 
