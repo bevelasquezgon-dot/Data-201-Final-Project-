@@ -4,33 +4,34 @@
 ### Incident: Google's Youtube Kids App Presents Inappropriate Content
 
 ### Who were the subjects?
-- Children have been exposed to inapproriate content via Youtube Kids, drawing concern to parents. Parents are concerend for their children's exposure to these things. 
+- Children have been exposed to inapproriate content via Youtube Kids. Parents and familes are also affected  because they thought Youtube was safe and realiby in terms of providing adequate content to kids. Parents and advocacy groups have pressured Youtube which is also affected as they face criticism and advisor concerns. 
 
 ### What is the problem 
 - Children are still being exposed to inappropriate content despite parent concerns.
 - Youtube Kids was marketed as a safe app for children engagement but they have failed to maintain the app safe for children. 
 
 ### Where are people encountering this problem?
-- This problem is seen globally, anywhere where Youtube Kids is available. 
+- This problem is seen anywhere where Youtube Kids is available. 
 
 ### Why is it a problem?
-- Youtube Kids was marketed as a safe app for children engagement but they have failed to maintain the app safe for children. 
+- Children may continue to be exposed to inappropriate content which can negatively affect their development and safety. Solving this problem would mostly benefit children who would gain a safer media environment. It would also help regain parent trust and thier peace of mind. Youtube would benefit from a solution by not having anymore advertisers pull out of the platform because their ads were attached to hateful content. 
+
 
 ### Did this model predict a behavior, or did it predict a proxy?
-This model predicted a proxy instead of a behavior because it assumes that characters such as Elmo or Elsa are automatically a video safe for kids. 
+The intended behavior of this model was to show only safe, age appropriate children's content. Instead, the model predicted videos that look like children's content instead of videos that are safe for kids. It predicted a proxy instead of a behavior because it assumes that characters such as Elmo or Elsa are automatically a video safe for kids. 
 
 ### Was this prediction truly in the "Public Interest"?
-Youtube has failed to recognize their flaws and they have even stated that it is the parents fault. They have  failed to be responsive to the public’s demands so no predictions were not made in the Public Interest. 
+Youtube only responded to concerns after advertizers became concerned. Parent's concerns alone did not drive major change. This indicates that corporate incentives were more of a priority rather than public welfare. They have  failed to be responsive to the public’s demands so no predictions were not made in the Public Interest. 
 
 ##  Classifing the failure using the Common Ethical Pitfalls
 
 ### Automation Bias: 
 Automation bias is the human tendency to over rely on automated sytems and assume they are correct even when they are wrong. In this case it initially played a role because moderators or designers assumed that the AI classifier was correctly filtering out harmful content. Parents also assumed that youtube kids were safe due to its marketing. 
-- Example : Moderators may have trusted the AI classification without cross checking. Similarily parents assumed the platform's marketing guaranteed safety. The result of this automation bias, nappropriate videos were rarely reviewed allowing harmful content to slip throught. 
+- Example : Moderators may have trusted the AI classification without cross checking. Similarily parents assumed the platform's marketing guaranteed safety. The result of this automation bias was that inappropriate videos were rarely reviewed allowing harmful content to slip through. 
 
 ### Feedback Loop 
 Feedback loop is when a system's outputs reinforce its own predictions or biases which lead to amplifying errors over time. In this case this was likely the strongest failure because if children briefly interacted with borderline content such as cartoon-looking videos with inappropriate content, the system interpreted this as engagement and further reinforces it by recommending similar videos to that one. 
-- Example : If a child clicked on one borderline video, the recommendation engine interpreted this as a positive engagment so it created a loop that promoted more inappropriate videos. 
+- Example : If a child clicked on one inappropriate video without realizing, the recommendation engine interpreted this as a positive engagment so it created a loop that promoted more inappropriate videos. 
 
 ## The Data Anatomy : Bias vs Noise 
 
@@ -39,8 +40,14 @@ Bias is the average error in predictions. It is a systematic error, a consistent
 Noise is the random, irrelevant fluctuations in data or judgements creating variability. It is unreliable and inconsistent in judgement. 
 
 ### Was the error caused by System Noise (unwanted variability in judgments, e.g., different human labelers giving different answers) or Predictive Bias (systematic error in one direction)?
-The failures in Youtube Kids are primarily caused by System Noise, especially Occasion Noise and inter-labeler variability during training-label creation which leads to inconsistent and incorrect judgements. 
-Predictive Bias is a result of the overly permissive rules from these noisy labels. EX: training bright colored thumbnails as safe .
+This error was casued both by system noise and predictivie bias. 
+
+#### Predictive Bias
+Youtube's algorithm was systematically biased toward promoting content that looked like children's content even if it was unsafe. It learned from wrong proxy signals such as keywords and character names because it was optimized for engagment not safety. The system was designed a certain way which made it make the same mistakes over and over again.  
+
+#### System Noise
+System noise here is the inconsistent human judgement during data labeling or moderation. The two major types found are occasion noise and system noise. Occasion noise happens when the same moderator is inconsitent with themselves. This is prone to happen as reviewers become fatigued after reviewing hundreds of videos leading to errors in their judgment. After reviewing many violent videos a borderline video may not seem as bad even if it is. System noise happens when different moderators have different judgements. There is an inconsistent definition of inappropriate videos which leads to label noise in the training set. 
+
 
 ## Data Protection & Privacy 
 
@@ -49,7 +56,7 @@ Predictive Bias is a result of the overly permissive rules from these noisy labe
 #### 1. Data Origin & Purpose 
 ##### Intended Purpose 
 To build: 
-- Content- filtering models for Youtube Kids
+- Content filtering models for Youtube Kids
 - Recommendation models for children safe browsing
 - Safety classifiers trained on human-labeled "appropriate/inappropriate" videos
 - Search ranking and recommendation rules based on engagement data from children and their parents
@@ -73,7 +80,7 @@ The data was used to :
 #### Notable Properties 
 - Enormous Scale : "400 hours of new content per minute"
 - Wide Cultural Inconsistency : "Global Contributers"
-- Highly adversarial environemnt: "creaters manipulate thumbnails and titles to bypass filters"
+- Highly adversarial environemnt: Creaters manipulate thumbnails and titles to bypass filters"
 
 ### 3. Labeling Process 
 #### Human Labelers 
@@ -134,11 +141,11 @@ Even if no inappropriate content ever slipped through the filters, YouTube Kids�
 
 ## The Framework Shutdown 
 ### At what stage of the AI Project Cycle did the failure occur? 
-The failure occurred primarily in the deployment stage of the ai project cycle. 
+The failure occurred primarily in the deployment stage of the Ai Project Cycle. 
 The problems emerged after the Youtube kids app and its recommendation algorithms were released for use. Harmful and misleading content slipped through the live recommendation system because bad actors exploited the operational algorithm after launch. The app and algorithms were functional but they underperformed in the wild. 
 
 ### Proposed Fix 
-Proposal: Parents can create a kids library that has no recommendations ; only preselected appear.  
+Proposal: Parents can create a kids library that has no recommendations ; only preselected videos appear.  
 
 #### The Ulitarian Argument 
 Implementing a parent controlled kids library maximizes overall well-being by minimizing children’s exposure to harmful content. 
@@ -157,12 +164,11 @@ Implementing a parent-controlled kids library is a categorical imperative becaus
 
 ## The Techinical Safeguard & XAI 
 Proposal: Implement a human-gated recommendation filter (HGRF) : a system in which any video eligible for Youtube Kids must pass through. 
-If a video does not pass all three steps, it cannot appear in Youtube Kids or recommendations: 
+If a video does not pass the following three steps, it cannot appear in Youtube Kids or recommendations: 
 1. Algorithmic Safety Screening ( violence, impersonation, sexual content etc) 
 2. Explainable Ai Scoring Layer (Shap-Lime based) 
 3. Final approval would be the human review gate before recommendations are allowed. 
-
-** Diagram Here (Getty Images) 
+ 
 
                     ┌──────────────────────────────┐
                     │      1. Problem Scoping       │
@@ -225,18 +231,16 @@ If a video does not pass all three steps, it cannot appear in Youtube Kids or re
 
 
 
-
+** The graph above was Ai generated 
 
 ### The XAI Requirement 
 How would SHAP values, LIME, or Counterfactual Explanations have allowed a human operator to catch this error before it caused harm?"
 
-- SHAP would have showed features the model relied on when deciding a video was child appropriate. It would show “ the model is making the wrong decision for the wrong reasons” 
+- SHAP would have showed features the model relied on when deciding a video was child appropriate. It would show that the model is making the wrong decision for the wrong reasons.
 
 - LIME would highlight local explanations frame by frame. Lime would reveal the local inconsistency that algorithms alone could not detect.
   Humans reviewers would see “normal looking intro frames classified as safe” or “violent or disturbing frame misclassified as toys” 
 
-
-** Mock up an "Explanation Interface" (wireframe or diagram) that shows what the operator should have seen 
 
 ### Explanation Interface 
 
@@ -304,6 +308,7 @@ First, SHAP would reveal systemic misclassifaction. The panel shows that the mod
 Then, LIME would expose harmful frames. The LIME frame-by-frame breakdown highights specific timestamps where things like screaming audio , distorted faces, and violent motions were present. These were things that the model incorrecly minimized. 
 
 Lastly,the overviewer would see contradictory SHAP/LIME evidenence so they would reject the video, preventing the video from entering the kids app. They could then add it to retraining data in hopes of fixing the model.  
+
 
 
 
