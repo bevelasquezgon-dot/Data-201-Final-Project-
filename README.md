@@ -34,9 +34,9 @@ Feedback loop is when a system's outputs reinforce its own predictions or biases
 
 ## The Data Anatomy : Bias vs Noise 
 
-### Bias is the average error in predictions. It is a systematic error, a consistent directional mistake. 
+Bias is the average error in predictions. It is a systematic error, a consistent directional mistake. 
 
-### Noise is the random, irrelevant fluctuations in data or judgements creating variability. It is unreliable and inconsistent in judgement. 
+Noise is the random, irrelevant fluctuations in data or judgements creating variability. It is unreliable and inconsistent in judgement. 
 
 ### Was the error caused by System Noise (unwanted variability in judgments, e.g., different human labelers giving different answers) or Predictive Bias (systematic error in one direction)?
 The failures in Youtube Kids are primarily caused by System Noise, especially Occasion Noise and inter-labeler variability during training-label creation which leads to inconsistent and incorrect judgements. 
