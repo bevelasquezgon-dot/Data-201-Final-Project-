@@ -232,75 +232,6 @@ If a video does not pass the following three steps, it cannot appear in Youtube 
 
 
 
-
-
-
-
-```
-+------------------------------+
-|      1. Problem Scoping      |
-+--------------+---------------+
-               |
-               v
-+------------------------------+
-|      2. Data Acquisition     |
-+--------------+---------------+
-               |
-       ETHICS-FIRST CHECKPOINT #1
-       - Privacy Assessment (GDPR / minors' data)
-       - Bias & Noise Audit (labeler variability)
-       - Data Minimization + Purpose Limitation
-               |
-               v
-+------------------------------+
-|      3. Data Exploration     |
-+--------------+---------------+
-               |
-       ETHICS-FIRST CHECKPOINT #2
-       - Detect label noise, adversarial patterns
-       - Cultural inconsistency & content manipulation
-               |
-               v
-+------------------------------+
-|          4. Modeling         |
-+--------------+---------------+
-               |
-       ETHICS-FIRST CHECKPOINT #3
-       - XAI layer (SHAP / LIME / Counterfactuals)
-       - Human approval gate for child-safe classifier
-       - Safety thresholds, auditability, transparency
-               |
-               v
-+------------------------------+
-|         5. Evaluation        |
-+--------------+---------------+
-               |
-       ETHICS-FIRST CHECKPOINT #4
-       - Reviewer sees model explanations BEFORE release
-       - Stress-test with adversarial kid-bait content
-       - Red-team harmful video variations
-               |
-               v
-+------------------------------+
-|         6. Deployment        |
-+--------------+---------------+
-               |
-       ETHICS-FIRST CHECKPOINT #5
-       - Live Monitoring for drift, new adversarial trends
-       - Human-Gated Recommendation Filter (HGRF)
-       - Escalation pipeline for parent flagging
-               |
-               v
-+------------------------------+
-|   Post-Deployment Feedback   |
-|            Loop              |
-+------------------------------+
-```
-
-
-
-
-
 ** The graph above was AI generated 
 
 ### The XAI Requirement 
@@ -374,19 +305,16 @@ The goal of this interface is to:
 
 ### Explanation 
 The interface above demonstrates how explainability tools would have prevented the Youtube Kids failure. 
-First, SHAP would reveal systemic misclassification. The panel shows that the model relied too heavily on bright colors, cartoon shapes, and child-like voices which are things that creators can easily manipulate. This shows that the model is making the wrong decisions for the wrong reasons. 
 
-Then, LIME would expose harmful frames. The LIME frame-by-frame breakdown highlights specific timestamps where things like screaming audio , distorted faces, and violent motions were present. These were things that the model incorrectly minimized. 
-
-Lastly,the overviewer would see contradictory SHAP/LIME evidence so they would reject the video, preventing the video from entering the kids app. They could then add it to retraining data in hopes of fixing the model.  
+First, SHAP would reveal systemic misclassification. The panel shows that the model relied too heavily on bright colors, cartoon shapes, and child-like voices which are things that creators can easily manipulate. This shows that the model is making the wrong decisions for the wrong reasons. Then, LIME would expose harmful frames. The LIME frame-by-frame breakdown highlights specific timestamps where things like screaming audio , distorted faces, and violent motions were present. These were things that the model incorrectly minimized. Lastly,the overviewer would see contradictory SHAP/LIME evidence so they would reject the video, preventing the video from entering the kids app. They could then add it to retraining data in hopes of fixing the model.  
 
 
 
 
 
 Works Cited : 
-OpenAI. ChatGPT, version 5.1, OpenAI, 2025, https://chat.openai.com/.
-“Incident 1: Google’s YouTube Kids App Presents Inappropriate Content.” AI Incident Database RSS, incidentdatabase.ai/cite/1/. Accessed 11 Dec. 2025. 
+- OpenAI. ChatGPT, version 5.1, OpenAI, 2025, https://chat.openai.com/.
+- “Incident 1: Google’s YouTube Kids App Presents Inappropriate Content.” AI Incident Database RSS, incidentdatabase.ai/cite/1/. Accessed 11 Dec. 2025. 
 
 
 
