@@ -1,10 +1,9 @@
-# THe "Ethics First" Counterfactual Audit 
-
+# Ethical Analysis of Google's Youtube Kids
 ## Impact Assessment
 ### Incident: Google's Youtube Kids App Presents Inappropriate Content
 
 ### Who were the subjects?
-- Children have been exposed to inapproriate content via Youtube Kids. Parents and familes are also affected  because they thought Youtube was safe and realiby in terms of providing adequate content to kids. Parents and advocacy groups have pressured Youtube which is also affected as they face criticism and advisor concerns. 
+- Children who have been exposed to inapproriate content via Youtube Kids are the ones most at risk. Parents and familes are also affected because they thought Youtube was safe and reliable in terms of providing adequate content to kids. Parents and advocacy groups have pressured Youtube which is also affected as they face criticism and advisor concerns. 
 
 ### What is the problem 
 - Children are still being exposed to inappropriate content despite parent concerns.
@@ -43,7 +42,7 @@ Noise is the random, irrelevant fluctuations in data or judgements creating vari
 This error was casued both by system noise and predictivie bias. 
 
 #### Predictive Bias
-Youtube's algorithm was systematically biased toward promoting content that looked like children's content even if it was unsafe. It learned from wrong proxy signals such as keywords and character names because it was optimized for engagment not safety. The system was designed a certain way which made it make the same mistakes over and over again.  
+Youtube's algorithm was systematically biased toward promoting content that looked like children's content even if it was unsafe. It learned from wrong proxy signals such as keywords and character names because it was optimized for engagment not safety. The system was designed a certain way which allowed it to make the same mistakes over and over again.  
 
 #### System Noise
 System noise here is the inconsistent human judgement during data labeling or moderation. The two major types found are occasion noise and system noise. Occasion noise happens when the same moderator is inconsitent with themselves. This is prone to happen as reviewers become fatigued after reviewing hundreds of videos leading to errors in their judgment. After reviewing many violent videos a borderline video may not seem as bad even if it is. System noise happens when different moderators have different judgements. There is an inconsistent definition of inappropriate videos which leads to label noise in the training set. 
@@ -71,7 +70,7 @@ The data was used to :
 ### 2. Data Collection 
 #### Sources of Data 
 - User interaction logs from children such as clicks, watch duration, and search history
-- Metadata from crates such as titles, thumbnails, and tags
+- Metadata from characteristics such as titles, thumbnails, and tags
 - Transcripts, audio and visual frames from videos
 - Parent account settings and controls
 - Content flagged by parents or others
