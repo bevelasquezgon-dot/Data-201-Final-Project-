@@ -141,7 +141,7 @@ Even if no inappropriate content ever slipped through the filters, YouTube Kids�
 
 ## The Framework Shutdown 
 ### At what stage of the AI Project Cycle did the failure occur? 
-The failure occurred primarily in the deployment stage of the Ai Project Cycle. 
+The failure occurred primarily in the deployment stage of the AI Project Cycle. 
 The problems emerged after the Youtube kids app and its recommendation algorithms were released for use. Harmful and misleading content slipped through the live recommendation system because bad actors exploited the operational algorithm after launch. The app and algorithms were functional but they underperformed in the wild. 
 
 ### Proposed Fix 
@@ -153,7 +153,7 @@ Implementing a parent controlled kids library maximizes overall well-being by mi
 - This approach improves transparency and accountability as parents know exactly what content their children can access, building trust with the platform. 
 - It supports privacy by empowering parents to control content without excessive collection or intrusive profiling 
 - It reduces societal harm by increasing safety and peace of mind for families, the net benefit is greater because children are safer and parents are more confident, the platforms would also be protected from backlash. 
-- This design reflects responsible use of Ai by avoiding over-reliance on imperfect algorithms in sensitive contexts. 
+- This design reflects responsible use of AI by avoiding over-reliance on imperfect algorithms in sensitive contexts. 
 
 #### The Kantian Argument 
 Implementing a parent-controlled kids library is a categorical imperative because it protects children and families.
@@ -166,7 +166,7 @@ Implementing a parent-controlled kids library is a categorical imperative becaus
 Proposal: Implement a human-gated recommendation filter (HGRF) : a system in which any video eligible for Youtube Kids must pass through. 
 If a video does not pass the following three steps, it cannot appear in Youtube Kids or recommendations: 
 1. Algorithmic Safety Screening ( violence, impersonation, sexual content etc) 
-2. Explainable Ai Scoring Layer (Shap-Lime based) 
+2. Explainable AI Scoring Layer (Shap-Lime based) 
 3. Final approval would be the human review gate before recommendations are allowed. 
  
 
@@ -231,7 +231,7 @@ If a video does not pass the following three steps, it cannot appear in Youtube 
 
 
 
-** The graph above was Ai generated 
+** The graph above was AI generated 
 
 ### The XAI Requirement 
 How would SHAP values, LIME, or Counterfactual Explanations have allowed a human operator to catch this error before it caused harm?"
@@ -300,6 +300,7 @@ The goal of this interface is to:
 │   [ FLAG FOR RETRAINING DATASET ] (use this example to improve) │
 └───────────────────────────────────────────────────────────────┘
 ```
+** This wireframe was AI generated
 
 ### Explanation 
 The interface above demonstrates how explainability tools would have prevented the Youtube Kids failure. 
