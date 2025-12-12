@@ -3,7 +3,7 @@
 ### Incident: Google's Youtube Kids App Presents Inappropriate Content
 
 ### Who were the subjects?
-- Children who have been exposed to inapproriate content via Youtube Kids are the ones most at risk. Parents and familes are also affected because they thought Youtube was safe and reliable in terms of providing adequate content to kids. Parents and advocacy groups have pressured Youtube which is also affected as they face criticism and advisor concerns. 
+- Children who have been exposed to inapproriate content via Youtube Kids are the ones most at risk. Parents and families are also affected because they thought Youtube was safe and reliable in terms of providing adequate content to kids. Parents and advocacy groups have pressured Youtube which is also affected as they face criticism and advisor concerns. 
 
 ### What is the problem 
 - Children are still being exposed to inappropriate content despite parent concerns.
@@ -15,12 +15,13 @@
 ### Why is it a problem?
 - Children may continue to be exposed to inappropriate content which can negatively affect their development and safety. Solving this problem would mostly benefit children who would gain a safer media environment. It would also help regain parent trust and thier peace of mind. Youtube would benefit from a solution by not having anymore advertisers pull out of the platform because their ads were attached to hateful content. 
 
+## The "Washington" Test
 
 ### Did this model predict a behavior, or did it predict a proxy?
 The intended behavior of this model was to show only safe, age appropriate children's content. Instead, the model predicted videos that look like children's content instead of videos that are safe for kids. It predicted a proxy instead of a behavior because it assumes that characters such as Elmo or Elsa are automatically a video safe for kids. 
 
 ### Was this prediction truly in the "Public Interest"?
-Youtube only responded to concerns after advertizers became concerned. Parent's concerns alone did not drive major change. This indicates that corporate incentives were more of a priority rather than public welfare. They have  failed to be responsive to the public’s demands so no predictions were not made in the Public Interest. 
+Youtube only responded to concerns after advertisers became concerned. Parent's concerns alone did not drive major change. This indicates that corporate incentives were more of a priority rather than public welfare. They have  failed to be responsive to the public’s demands so no predictions were not made in the Public Interest. 
 
 ##  Classifing the failure using the Common Ethical Pitfalls
 
