@@ -141,8 +141,15 @@ Even if no inappropriate content ever slipped through the filters, YouTube Kids�
 
 ## The Framework Shutdown 
 ### At what stage of the AI Project Cycle did the failure occur? 
-The failure occurred primarily in the deployment stage of the AI Project Cycle. 
-The problems emerged after the Youtube kids app and its recommendation algorithms were released for use. Harmful and misleading content slipped through the live recommendation system because bad actors exploited the operational algorithm after launch. The app and algorithms were functional but they underperformed upon deployment. 
+
+The primary failure points were: 
+1) Problem Scoping - Youtube underestimated the adversarial ways the system could be exploited
+2) Data Acquisition - Harmful content was included in the dataset and not properly labeled or filtered
+3) Data Exploration - Early warning signals in the data were not detected, audited or addressed
+-> Modeling, Evaluation and Deployment failed because the scoping and data were weak
+
+
+
 
 ### Proposed Fix 
 Proposal: Parents can create a kids library that has no recommendations ; only preselected videos appear.  
@@ -163,76 +170,150 @@ Implementing a parent-controlled kids library is a categorical imperative becaus
 - Children’s well being and parental control are not compromised for efficiency or profit. 
 
 ## The Technical Safeguard & XAI 
+### The Ethical Design Proposal 
 Proposal: Implement a human-gated recommendation filter (HGRF) : a system in which any video eligible for Youtube Kids must pass through. 
 If a video does not pass the following three steps, it cannot appear in Youtube Kids or recommendations: 
 1. Algorithmic Safety Screening ( violence, impersonation, sexual content etc) 
-2. Explainable AI Scoring Layer (Shap-Lime based) 
-3. Final approval would be the human review gate before recommendations are allowed. 
- 
+2. Explainable AI Scoring Layer (Shap-Lime based)
+3. Final approval would be the human review gate before recommendations are allowed.
 
-                    ┌──────────────────────────────┐
-                    │      1. Problem Scoping       │
-                    └───────────────┬──────────────┘
-                                    │
-                                    ▼
-                    ┌──────────────────────────────┐
-                    │      2. Data Acquisition      │
-                    └───────────────┬──────────────┘
-                                    │
-                     ETHICS-FIRST CHECKPOINT #1
-           - Privacy Assessment (GDPR / minors’ data)
-           - Bias & Noise Audit (labeler variability)
-           - Data Minimization + Purpose Limitation
-                                    │
-                                    ▼
-                    ┌──────────────────────────────┐
-                    │      3. Data Exploration      │
-                    └───────────────┬──────────────┘
-                                    │
-                     ETHICS-FIRST CHECKPOINT #2
-        - Detect label noise, adversarial patterns, 
-          cultural inconsistency, and content manipulation
-                                    │
-                                    ▼
-                    ┌──────────────────────────────┐
-                    │          4. Modeling          │
-                    └───────────────┬──────────────┘
-                                    │
-                     ETHICS-FIRST CHECKPOINT #3
-         - XAI Layer Added (SHAP/LIME/Counterfactuals)
-         - Human Approval Gate for “child-safe” classifier
-         - Safety Thresholds, Auditability, Transparency
-                                    │
-                                    ▼
-                    ┌──────────────────────────────┐
-                    │         5. Evaluation         │
-                    └───────────────┬──────────────┘
-                                    │
-                     ETHICS-FIRST CHECKPOINT #4
-       - Reviewer sees model explanations BEFORE release
-       - Stress-test with adversarial kid-bait content
-       - Red-team harmful video variations
-                                    │
-                                    ▼
-                    ┌──────────────────────────────┐
-                    │         6. Deployment         │
-                    └───────────────┬──────────────┘
-                                    │
-                     ETHICS-FIRST CHECKPOINT #5
-       - Live Monitoring for drift, new adversarial trends
-       - Human-Gated Recommendation Filter (HGRF)
-       - Escalation pipeline for parent flagging
-        
-                                    │
-                                    ▼
-                    ┌──────────────────────────────┐
-                    │       Post-Deployment         │
-                    │        Feedback Loop          │
-                    └──────────────────────────────┘ ```
+### Where would have the "Ethics First" check stopped in the orginal timeline? 
+
+```
++------------------------------+
+|      1. Problem Scoping      |
++--------------+---------------+
+               |
+   ⚠️ FAILURE: Risks underestimated
+   - Adversarial content not considered
+   - Definition of "child-safe" unclear
+               |
+               v
++------------------------------+
+|      2. Data Acquisition     |
++--------------+---------------+
+               |
+   ⚠️ FAILURE: Data not filtered
+   - Harmful videos included in dataset
+   - No adversarial labeling
+               |
+               v
++------------------------------+
+|      3. Data Exploration     |
++--------------+---------------+
+               |
+   ⚠️ FAILURE: Edge cases ignored
+   - Patterns of exploitative content missed
+   - No stress-testing of "kid-bait" videos
+               |
+               v
++------------------------------+
+|          4. Modeling         |
++--------------+---------------+
+               |
+   ⚠️ IMPACTED: Algorithm trained on bad data
+   - ML models learned from harmful content
+   - Lack of human-in-the-loop safeguards
+               |
+               v
++------------------------------+
+|         5. Evaluation        |
++--------------+---------------+
+               |
+   ⚠️ IMPACTED: Evaluation reactive, not proactive
+   - Human reviewers only partially effective
+   - No systematic adversarial testing
+               |
+               v
++------------------------------+
+|         6. Deployment        |
++--------------+---------------+
+               |
+   ⚠️ IMPACTED: Harmful videos reached children
+   - Moderation gaps
+   - Recommendations exposed kids to unsafe content
+               |
+               v
++------------------------------+
+|   Post-Deployment Feedback   |
+|            Loop              |
++------------------------------+
+   - Parents and advocacy groups flagged content
+   - Feedback used, but only after widespread exposure
+```
+** This graph was AI generated 
 
 
+### How are Explainability and Ethical Design embedded throughout the AI lifecycle? 
 
-** The graph above was AI generated 
+
+```
++------------------------------+
+|      1. Problem Scoping      |
++--------------+---------------+
+               |
+   ✅ Define child-safety as primary objective
+   ✅ Include adversarial scenarios
+   ✅ Ethical Design: prioritize wellbeing over engagement
+               |
+               v
++------------------------------+
+|      2. Data Acquisition     |
++--------------+---------------+
+               |
+   ✅ Curate labeled dataset
+   ✅ Exclude unsafe or exploitative videos
+   ✅ Include adversarial examples for robust training
+               |
+               v
++------------------------------+
+|      3. Data Exploration     |
++--------------+---------------+
+               |
+   ✅ Detect harmful patterns & edge cases
+   ✅ Use Explainable AI to audit data
+   ✅ Ethical Design: identify bias, unsafe trends
+               |
+               v
++------------------------------+
+|          4. Modeling         |
++--------------+---------------+
+               |
+   ✅ Algorithmic Safety Screening (HGRF Step 1)
+   - Detect violence, sexual content, impersonation, unsafe behavior
+   ✅ Explainable AI Scoring Layer (HGRF Step 2)
+   - SHAP / LIME scoring for transparency
+               |
+               v
++------------------------------+
+|         5. Evaluation        |
++--------------+---------------+
+               |
+   ✅ Human Review Gate (HGRF Step 3)
+   - Manual approval required before recommendations
+   ✅ Red-team testing & stress-test for adversarial videos
+   ✅ Ethical Design: ensures context-aware, child-safe decisions
+               |
+               v
++------------------------------+
+|         6. Deployment        |
++--------------+---------------+
+               |
+   ✅ Only videos passing HGRF are recommended
+   ✅ Live monitoring for drift & new adversarial content
+   ✅ Explainability dashboards for moderators and parents
+               |
+               v
++------------------------------+
+|   Post-Deployment Feedback   |
+|            Loop              |
++--------------+---------------+
+               |
+   ✅ Continuous collection of flagged content & parent feedback
+   ✅ Update models and rules using Explainable AI insights
+   ✅ Transparent reporting & accountability
+```
+** This graph was AI generated 
 
 ### The XAI Requirement 
 How would SHAP values, LIME, or Counterfactual Explanations have allowed a human operator to catch this error before it caused harm?"
