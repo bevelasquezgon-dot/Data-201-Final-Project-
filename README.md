@@ -1,6 +1,8 @@
-# Google's Youtube Kids App Presents Inappropriate Content 
+# THe "Ethics First" Counterfactual Audit 
 
-## Impact Assessment 
+## Impact Assessment
+### Incident: Google's Youtube Kids App Presents Inappropriate Content
+
 ### Who were the subjects?
 - Children have been exposed to inapproriate content via Youtube Kids, drawing concern to parents. Parents are concerend for their children's exposure to these things. 
 
@@ -23,18 +25,18 @@ Youtube has failed to recognize their flaws and they have even stated that it is
 ##  Classifing the failure using the Common Ethical Pitfalls
 
 ### Automation Bias: 
-Initially played a role because moderators or designers assumed that the Ai classifier was correctly filtering out harmful content. Parents also assumed that youtube kids were safe due to its marketing. 
+Automation bias is the human tendency to over rely on automated sytems and assume they are correct even when they are wrong. In this case it initially played a role because moderators or designers assumed that the AI classifier was correctly filtering out harmful content. Parents also assumed that youtube kids were safe due to its marketing. 
+- Example : Moderators may have trusted the AI classification without cross checking. Similarily parents assumed the platform's marketing guaranteed safety. The result of this automation bias, nappropriate videos were rarely reviewed allowing harmful content to slip throught. 
 
 ### Feedback Loop 
-The strongest failure was probably the feedback loop because if children briefly interacted with borderline content such as cartoon-looking videos with inappropriate content, the system interpreted this as engagement and further reinforces it by recommending similar videos to that one. 
+Feedback loop is when a system's outputs reinforce its own predictions or biases which lead to amplifying errors over time. In this case this was likely the strongest failure because if children briefly interacted with borderline content such as cartoon-looking videos with inappropriate content, the system interpreted this as engagement and further reinforces it by recommending similar videos to that one. 
+- Example : If a child clicked on one borderline video, the recommendation engine interpreted this as a positive engagment so it created a loop that promoted more inappropriate videos. 
 
 ## The Data Anatomy : Bias vs Noise 
 
-### Bias 
-Bias is the average error in predictions. It is a systematic error, a consistent directional mistake. 
+### Bias is the average error in predictions. It is a systematic error, a consistent directional mistake. 
 
-### Noise 
-Noise is the random, irrelevant fluctuations in data or judgements creating variability. It is unreliable and inconsistent in judgement. 
+### Noise is the random, irrelevant fluctuations in data or judgements creating variability. It is unreliable and inconsistent in judgement. 
 
 ### Was the error caused by System Noise (unwanted variability in judgments, e.g., different human labelers giving different answers) or Predictive Bias (systematic error in one direction)?
 The failures in Youtube Kids are primarily caused by System Noise, especially Occasion Noise and inter-labeler variability during training-label creation which leads to inconsistent and incorrect judgements. 
@@ -236,7 +238,79 @@ How would SHAP values, LIME, or Counterfactual Explanations have allowed a human
 
 ** Mock up an "Explanation Interface" (wireframe or diagram) that shows what the operator should have seen 
 
+### Explanation Interface 
 
+The goal of this interface is to: 
+1) Provide transparant explanations of the models decision
+2) Show global SHAP feature contributions (why this model thinks the video is "safe")
+3) Show local LIME explanations (frame-by-frame safety analysis)
+4) Allows a reviewerd to override bad model decisions
+5) Create an audit train that would have prevented inappropriate content from appearing on Youtube Kids
+
+
+```
+┌───────────────────────────────────────────────────────────────┐
+│                 YOUTUBE KIDS — SAFETY REVIEW UI               │
+├───────────────────────────────────────────────────────────────┤
+│ VIDEO PREVIEW                                                  │
+│ ┌───────────────────────────────────────────────────────────┐ │
+│ │                      [ Thumbnail Preview ]                │ │
+│ └───────────────────────────────────────────────────────────┘ │
+│ Title: Peppa Pig Playtime (Funny!)                             │
+│ Uploader: KidsFunChannel123                                     │
+│ Model Risk Score: 0.71   →   FLAGGED FOR HUMAN REVIEW           │
+├───────────────────────────────────────────────────────────────┤
+│ GLOBAL EXPLANATION — SHAP VALUES                               │
+│ (What features influenced the model's decision overall?)        │
+│                                                                 │
+│   +0.42   Bright, high-saturation thumbnail colors              │
+│   +0.31   Cartoon-like character detection                      │
+│   +0.19   Child voice in first seconds                          │
+│   -0.12   Screaming audio at 01:23                              │
+│   -0.18   Distorted face detection (frames 214–230)             │
+│   -0.21   Violent action cluster detected                       │
+│                                                                 │
+│ Reviewer Insight:                                               │
+│ → Model is over-weighting "childish" aesthetics.               │
+│ → Harmful audiovisual features are being minimized.             │
+├───────────────────────────────────────────────────────────────┤
+│ LOCAL EXPLANATION — LIME FRAME ANALYSIS                        │
+│ (Which exact frames influenced the model’s decision?)           │
+│                                                                 │
+│   Timestamp       Model Judgment       Reason                   │
+│   -----------------------------------------------------------   │
+│   00:00–00:03     [ SAFE ]             Cartoon intro detected   │
+│   01:23–01:27     [ RISK ]             Screaming + distorted face│
+│   02:10–02:15     [ RISK ]             Violent movement detected │
+│   02:15–02:45     [ SAFE ]             Bright toy colors         │
+│                                                                 │
+│ Reviewer Insight:                                               │
+│ → Mid-video unsafe segments contradict intro safety cues.       │
+│ → Model incorrectly judged video as safe due to intro + colors. │
+├───────────────────────────────────────────────────────────────┤
+│ ACTIONS                                                         │
+│                                                                 │
+│   [ REJECT FOR YOUTUBE KIDS ]   (remove + record justification) │
+│   [ ESCALATE TO SENIOR REVIEW ]  (uncertain or borderline)      │
+│   [ APPROVE ]                  (fully safe)                     │
+│   [ FLAG FOR RETRAINING DATASET ] (use this example to improve) │
+└───────────────────────────────────────────────────────────────┘
+```
+
+### Explanation 
+The interface above demonstrates how explainability tools would have prevented the Youtube Kids failure. 
+First, SHAP would reveal systemic misclassifaction. The panel shows that the model relied too heavily on bright colors, cartoon shapes, and child-like voices which are things that creators can easily manipulate. This shows that the mdoel is making the wrong decisions for the wrong reasons. 
+
+Then, LIME would expose harmful frames. The LIME frame-by-frame breakdown highights specific timestamps where things like screaming audio , distorted faces, and violent motions were present. These were things that the model incorrecly minimized. 
+
+Lastly,the overviewer would see contradictory SHAP/LIME evidenence so they would reject the video, preventing the video from entering the kids app. They could then add it to retraining data in hopes of fixing the model.  
+
+
+
+
+Works Citied : 
+OpenAI. ChatGPT, version 5.1, OpenAI, 2025, https://chat.openai.com/.
+“Incident 1: Google’s YouTube Kids App Presents Inappropriate Content.” AI Incident Database RSS, incidentdatabase.ai/cite/1/. Accessed 11 Dec. 2025. 
 
 
 
