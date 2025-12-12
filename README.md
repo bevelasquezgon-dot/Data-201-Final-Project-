@@ -231,6 +231,70 @@ If a video does not pass the following three steps, it cannot appear in Youtube 
 
 
 
+
++------------------------------+
+|      1. Problem Scoping      |
++--------------+---------------+
+               |
+               v
++------------------------------+
+|      2. Data Acquisition     |
++--------------+---------------+
+               |
+        ETHICS-FIRST CHECKPOINT #1
+        - Privacy Assessment (GDPR / minors' data)
+        - Bias & Noise Audit (labeler variability)
+        - Data Minimization + Purpose Limitation
+               |
+               v
++------------------------------+
+|      3. Data Exploration     |
++--------------+---------------+
+               |
+        ETHICS-FIRST CHECKPOINT #2
+        - Detect label noise, adversarial patterns
+        - Cultural inconsistency & content manipulation
+               |
+               v
++------------------------------+
+|          4. Modeling         |
++--------------+---------------+
+               |
+        ETHICS-FIRST CHECKPOINT #3
+        - XAI layer (SHAP / LIME / Counterfactuals)
+        - Human approval gate for child-safe classifier
+        - Safety thresholds, auditability, transparency
+               |
+               v
++------------------------------+
+|         5. Evaluation        |
++--------------+---------------+
+               |
+        ETHICS-FIRST CHECKPOINT #4
+        - Review explanations BEFORE release
+        - Stress-test w/ adversarial kid-bait content
+        - Red-team harmful video variations
+               |
+               v
++------------------------------+
+|         6. Deployment        |
++--------------+---------------+
+               |
+        ETHICS-FIRST CHECKPOINT #5
+        - Live drift monitoring & adversarial trend tracking
+        - Human-Gated Recommendation Filter (HGRF)
+        - Escalation pipeline for parent flagging
+               |
+               v
++------------------------------+
+|   Post-Deployment Feedback   |
+|            Loop              |
++------------------------------+
+
+
+
+
+
 ** The graph above was AI generated 
 
 ### The XAI Requirement 
