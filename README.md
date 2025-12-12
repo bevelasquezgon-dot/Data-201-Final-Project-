@@ -146,13 +146,14 @@ The primary failure points were:
 1) Problem Scoping - Youtube underestimated the adversarial ways the system could be exploited
 2) Data Acquisition - Harmful content was included in the dataset and not properly labeled or filtered
 3) Data Exploration - Early warning signals in the data were not detected, audited or addressed
+
 -> Modeling, Evaluation and Deployment failed because the scoping and data were weak
 
 
 
 
 ### Proposed Fix 
-Proposal: Parents can create a kids library that has no recommendations ; only preselected videos appear.  
+Proposal 1 : Parents can create a kids library that has no recommendations ; only preselected videos appear.  
 
 #### The Utilitarian Argument 
 Implementing a parent controlled kids library maximizes overall well-being by minimizing children’s exposure to harmful content. 
@@ -171,7 +172,7 @@ Implementing a parent-controlled kids library is a categorical imperative becaus
 
 ## The Technical Safeguard & XAI 
 ### The Ethical Design Proposal 
-Proposal: Implement a human-gated recommendation filter (HGRF) : a system in which any video eligible for Youtube Kids must pass through. 
+Proposal 2: Implement a human-gated recommendation filter (HGRF) : a system in which any video eligible for Youtube Kids must pass through. 
 If a video does not pass the following three steps, it cannot appear in Youtube Kids or recommendations: 
 1. Algorithmic Safety Screening ( violence, impersonation, sexual content etc) 
 2. Explainable AI Scoring Layer (Shap-Lime based)
