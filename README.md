@@ -99,7 +99,7 @@ The data was used to :
 - Creators use misleading thumbnails to bypass moderation
 - Videos mimick popular kids aesthetics to appear sage
 
--> these inconcistencies contaminate the training data 
+-> these inconsistencies contaminate the training data 
 
 ### 4. Modeling & Deployment 
 #### Model Types Used 
